@@ -9,8 +9,8 @@ const morseCodeDict = {
     '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
     '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----',
     // Русские буквы
-    'а': '.-', 'б': '-...', 'в': '.--', 'г': '--.', 'д': '-..', 'е': '.',
-    'ё': '.', 'ж': '...-', 'з': '--..', 'и': '..', 'й': '.---', 'к': '-.-',
+    'а': '.-', 'б': '-...', 'в': '.--', 'г': '--.', 'д': '-..',
+    'ё': '.', 'е': '.', 'ж': '...-', 'з': '--..', 'и': '..', 'й': '.---', 'к': '-.-',
     'л': '.-..', 'м': '--', 'н': '-.', 'о': '---', 'п': '.--.', 'р': '.-.',
     'с': '...', 'т': '-', 'у': '..-', 'ф': '..-.', 'х': '....', 'ц': '-.-.',
     'ч': '---.', 'ш': '----', 'щ': '--.-', 'ы': '-.--', 'э': '..-..',
@@ -32,9 +32,13 @@ const reverseMorseCodeDict = Object.fromEntries(
 );
 
 const morseToText = (morse) => {
-    return morse.split(' ')
-        .map(word => word.split(' ').map(character => reverseMorseCodeDict[character] || '').join(''))
-        .join(' ');
+    return morse.split('   ').map(word => (
+        word.split(' ').map(character => (
+            reverseMorseCodeDict.hasOwnProperty(character) ? 
+            reverseMorseCodeDict[character] : 
+            character
+        )).join('')
+    )).join(' ');
 };
 
 const binaryToText = (binary) => {
