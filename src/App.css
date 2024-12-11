@@ -87,24 +87,45 @@ select {
 }
 
 .mainBlock {
-  text-align: center;
+  /* text-align: center; */
   max-width: 740px;
 }
 
 textarea {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
-  height: 120px;
+  height: 60px;
   margin: 20px 0;
   padding: 16px;
   font-size: 16px;
-  border-radius: 16px;
+  /* border-radius: 16px; */
   max-width: 740px;
+}
+
+textarea {
+  background-color: transparent; /* Прозрачный фон */
+  border: none; /* Убираем обводку */
+  box-shadow: none; /* Убираем тень */
+  outline: none; /* Убираем стандартное выделение при фокусе */
+  appearance: none; /* Убираем стили браузера, если они есть */
+  -webkit-appearance: none; /* Для браузеров на движке WebKit */
+  -moz-appearance: none; /* Для Firefox */
+  
+  /* Дополнительные свойства для кастомизации при необходимости */
+  padding: 0; /* Убираем внутренние отступы */
+  margin: 0; /* Убираем внешние отступы */
+  font-size: inherit; /* Наследуем размер текста */
+  color: white; /* Наследуем цвет текста */
+  caret-color: white;
+}
+
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.60);
 }
 
 h1 {
   color: #fff;
-  /* connent */
+  margin-bottom: 32px;
 }
 
 h2 {
@@ -121,7 +142,7 @@ span {
 .blocks {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   max-width: 740px;
 }
 
@@ -133,7 +154,7 @@ span {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   max-width: 100%;
 }
 
